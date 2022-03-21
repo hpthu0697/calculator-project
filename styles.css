@@ -1,0 +1,79 @@
+.container {
+    width: 400px;
+    height: 650px;
+    background-color:rgb(200, 255, 200);
+    border: green solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px  25px 10px green;
+    margin: 0 auto;
+    border-radius: 4%;
+    margin-top: 2%;
+}
+
+.operationDisplay {
+    height: 25%;
+    border-bottom: green solid;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 .5%;
+}
+
+.buttonsDisplay {
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    padding: .4em;
+}
+.buttons-syle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12%;
+    width: 21%;
+    border-radius: 10%;
+    color: rgb(7, 109, 7);
+    background-color: rgb(90, 177, 90);
+    box-shadow: 3px 3px 2px green;
+    font-size: 2em;
+}
+
+.buttons:hover {
+    background-color: green;
+}
+
+.showBigNums {
+    height: 60%;
+    font-size: 2.2em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: green;
+    background-color: rgb(245, 245, 220);
+}
+
+.showOperation {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.5em;
+    color: green;
+    background-color: rgb(245, 245, 220);
+    height: 20%;
+}
+
+body {
+    background-image: url("https://images.pexels.com/photos/15286/pexels-photo.jpg?cs=srgb&dl=pexels-luis-del-r%C3%ADo-15286.jpg&fm=jpg");
+    background-size: cover;
+}
+
+footer {
+    font-size: 1.5em;
+    color: lightgreen;
+    text-align: center;
+}
