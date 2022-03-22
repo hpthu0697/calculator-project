@@ -25,13 +25,15 @@ const deleteBtn = document.querySelector(".deleteBtn");
 
 // functions 
 function operate () {
-    secondNum = parseFloat(currentNum);
-    bigNumsDisplay.textContent = "";
-    operationDisplay.textContent += `${secondNum} = `;
+    secondNum = parseFloat(bigNumsDisplay.textContent);
     let addSum = firstNum + secondNum;
     let subSum = firstNum - secondNum;
     let timesSum = firstNum * secondNum;
     let divSum = firstNum / secondNum;
+
+    bigNumsDisplay.textContent = "";
+    operationDisplay.textContent = `${firstNum} ${operator} ${secondNum} = `;
+    
     
     if (operator === "+"){
         bigNumsDisplay.textContent += addSum;
@@ -73,6 +75,10 @@ buttons.forEach((button) =>{
 clearButton.addEventListener("click", () => {
     bigNumsDisplay.textContent= "";
     operationDisplay.textContent = "";
+    firstNum = "";
+    secondNum = "";
+    operator = "";
+    currentNum = "";
 });
 
 
@@ -86,6 +92,7 @@ powersBtn.addEventListener("click", ()=> {
 
 percentBtn.addEventListener("click", () => {
     bigNumsDisplay.textContent = parseInt(currentNum) / 100;
+    operationDisplay.textContent = `${currentNum}%`;
 })
 equalBtn.addEventListener("click", operate);
 addBtn.addEventListener("click", saveFirstNum);

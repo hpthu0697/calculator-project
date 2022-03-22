@@ -65,6 +65,7 @@
     color: green;
     background-color: rgb(245, 245, 220);
     height: 20%;
+    max-height: 20%;
 }
 
 body {
