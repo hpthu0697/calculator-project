@@ -77,3 +77,8 @@ footer {
     color: lightgreen;
     text-align: center;
 }
+
+.nonNums {
+    background-color: brown;
+    color: lightgreen;
+}

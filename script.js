@@ -1,91 +1,9 @@
 
-/*
-function operate () {
-    secondNum = parseFloat(currentWord);
-    bigNumsDisplay.textContent = "";
-    if (operator === "+"){
-        bigNumsDisplay.textContent += firstNum + secondNum;
-    } else if (operator === "-") {
-        bigNumsDisplay.textContent += firstNum - secondNum;
-    } else if (operator === "*") {
-        bigNumsDisplay.textContent += firstNum * secondNum;
-    } else if (operator === "/") {
-        bigNumsDisplay.textContent += firstNum / secondNum;
-    }
-}
-
-
-const bigNumsDisplay = document.querySelector(".showBigNums");
-
-
-const buttons = document.querySelectorAll(".buttons");
-buttons.forEach((button) =>{
-    button.addEventListener("click", displayNums);
-})
-let currentWord = "";
-const operationDisplay = document.querySelector(".showOperation");
-
-function displayNums() {
-    currentWord =  bigNumsDisplay.textContent;
-    if (currentWord.length <15){
-        bigNumsDisplay.textContent += `${this.textContent}`;
-    } else {
-        return bigNumsDisplay.textContent = "Reached Limit";
-    }
-    if(this.textContent !== "=") {
-        operationDisplay.textContent += `${this.textContent}`;
-    } 
-    if(this.textContent === "DEL") {
-        operationDisplay.textContent = "";
-    }
-}
-
-const clearButton = document.querySelector(".clearBtn");
-clearButton.addEventListener("click", () => {
-    bigNumsDisplay.textContent= "";
-    operationDisplay.textContent = "";
-})
-
-const deleteBtn = document.querySelector(".deleteBtn");
-deleteBtn.addEventListener("click", () => {
-    bigNumsDisplay.textContent =  `${currentWord.slice(0, -1)}`;
-})
-
-const powersBtn = document.querySelector(".powersBtn");
-powersBtn.addEventListener("click", ()=> {
-    bigNumsDisplay.textContent = parseInt(currentWord) * parseInt(currentWord);
-})
-
-let firstNum = "";
-let secondNum = "";
-let operator = "";
-const addBtn = document.querySelector(".addBtn");
-addBtn.addEventListener("click", saveFirstNum);
-
-function saveFirstNum() {
-    firstNum = parseFloat(currentWord);
-    operator = this.textContent;
-    bigNumsDisplay.textContent = "";
-}
-
-const subtractBtn = document.querySelector(".subtractBtn");
-subtractBtn.addEventListener("click", saveFirstNum)
-
-const divisionBtn = document.querySelector(".divisionBtn");
-divisionBtn.addEventListener("click", saveFirstNum)
-
-const multiplyBtn = document.querySelector(".multiplyBtn");
-multiplyBtn.addEventListener("click", saveFirstNum)
-
-const equalBtn = document.querySelector(".equalBtn");
-equalBtn.addEventListener("click", operate)
- */
-
 // variables 
 let firstNum = "";
 let secondNum = "";
 let operator = "";
-let currentWord = "";
+let currentNum = "";
 
 // query selectors 
 const bigNumsDisplay = document.querySelector(".showBigNums");
@@ -107,8 +25,9 @@ const deleteBtn = document.querySelector(".deleteBtn");
 
 // functions 
 function operate () {
-    secondNum = parseFloat(currentWord);
+    secondNum = parseFloat(currentNum);
     bigNumsDisplay.textContent = "";
+    operationDisplay.textContent += `${secondNum} = `;
     let addSum = firstNum + secondNum;
     let subSum = firstNum - secondNum;
     let timesSum = firstNum * secondNum;
@@ -122,27 +41,27 @@ function operate () {
         bigNumsDisplay.textContent += timesSum;
     } else if (operator === "/") {
         bigNumsDisplay.textContent += divSum;
-    }
+    } 
 }
 
 function displayNums() {
-    currentWord =  bigNumsDisplay.textContent;
+    currentNum =  bigNumsDisplay.textContent;
     
-    bigNumsDisplay.textContent += `${this.textContent}`;
+    bigNumsDisplay.textContent += this.textContent;
     
-    
-    if(this.textContent !== "=") {
-        operationDisplay.textContent += `${this.textContent}`;
-    } 
     if(this.textContent === "DEL") {
         operationDisplay.textContent = "";
+    }
+    if(this.textContent === "x^2") {
+        operationDisplay.textContent = `${currentNum}^2 = `;
     }
 }
 
 function saveFirstNum() {
-    firstNum = parseFloat(currentWord);
+    firstNum = parseFloat(currentNum);
     operator = this.textContent;
     bigNumsDisplay.textContent = "";
+    operationDisplay.textContent = `${currentNum} ${operator} `;
 }
 
 
@@ -158,15 +77,15 @@ clearButton.addEventListener("click", () => {
 
 
 deleteBtn.addEventListener("click", () => {
-    bigNumsDisplay.textContent =  `${currentWord.slice(0, -1)}`;
+    bigNumsDisplay.textContent =  `${currentNum.slice(0, -1)}`;
 });
 
 powersBtn.addEventListener("click", ()=> {
-    bigNumsDisplay.textContent = parseInt(currentWord) * parseInt(currentWord);
+    bigNumsDisplay.textContent = parseInt(currentNum) * parseInt(currentNum);
 });
 
 percentBtn.addEventListener("click", () => {
-    bigNumsDisplay.textContent = parseInt(currentWord) / 100;
+    bigNumsDisplay.textContent = parseInt(currentNum) / 100;
 })
 equalBtn.addEventListener("click", operate);
 addBtn.addEventListener("click", saveFirstNum);
